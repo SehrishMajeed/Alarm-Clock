@@ -1,0 +1,120 @@
+Department of Computer Science (BS(E)-I-A)
+ 
+ 
+ 
+Alarm Clock project
+
+
+
+
+      
+Group Leader:  Sehrish Majeed
+Roll No. 24014119-141
+
+Group Members:
+
+1.Saba Ghazanfar_ Roll No. 24014119-129
+2.Noor Fatima_ Roll No. 24014119-282
+
+Course: OOP(CS-103)
+
+Instructor’s Name: Mr. Naveed Abbas
+Submission Date.
+1st May,2025
+
+
+Alarm Clock Project Documentation in C++
+Table of Contents
+1. Introduction
+2. Step-by-Step Development
+   - Step 1: Write Code
+   - Step 2: Compile Code
+   - Step 3: Run Program
+   - Step 4: Output
+3. Conclusion
+
+
+1. Introduction
+This project is a simple Alarm Clock application written in C++. The program allows the user to set a time, and it checks the system clock to ring the alarm at the correct moment.
+
+
+2. Step-by-Step Development
+Step 1: Writing the Code
+I wrote the following code in a file named alarm.cpp:
+
+#include <iostream>
+#include <ctime>
+#include <thread>
+#include <chrono>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    int alarmHour, alarmMinute;
+    char colon;
+
+    cout << "Set alarm time (HH:MM): ";
+    cin >> alarmHour >> colon >> alarmMinute;
+
+    cout << "Alarm is set for " << setfill('0') << setw(2) << alarmHour << ":"
+         << setfill('0') << setw(2) << alarmMinute << ".\n";
+    cout << "Waiting for alarm...\n";
+
+    while (true) {
+        time_t now = time(0);
+        tm* currentTime = localtime(&now);
+
+        cout << "Current time: "
+             << setfill('0') << setw(2) << currentTime->tm_hour << ":"
+             << setfill('0') << setw(2) << currentTime->tm_min << ":"
+             << setfill('0') << setw(2) << currentTime->tm_sec << "\r";
+        cout.flush();
+
+        if (currentTime->tm_hour == alarmHour && currentTime->tm_min == alarmMinute) {
+            cout << "\nWAKE UP! WAKE UP! ALARM RINGING!\n";
+            break;
+        }
+
+        this_thread::sleep_for(chrono::seconds(1));
+    }
+
+    return 0;
+}
+Screenshot: 
+
+Step 2: Compiling the Code
+To compile the program, I used to Function 9 key such as below Screenshot.
+
+
+Screenshot: 
+
+Step 3: Running the Program
+I executed the compiled alarm.exe file and set the alarm time via console input.
+Screenshot: 
+
+Step 4: Alarm Output
+Once the system time matched the alarm time, the program displayed an alarm message.
+Screenshot: 
+
+3. Conclusion
+In this project, I created a basic Alarm Clock using C++. The program takes user input for time, checks the current system time continuously, and displays a message when the time matches. This helped me understand how to use loops, system time functions, and conditional logic in C++.
+
+
+
+
+
+
+
+2 
+ 
+
+2 
+ 
+
+
+
+
+ 
+ 
+
